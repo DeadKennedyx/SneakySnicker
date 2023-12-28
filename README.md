@@ -32,8 +32,9 @@ C Script to encrypt and decrypt binary files
 
 #### Usage
 File should be where the script is running.
-
-1. Compile it.
+1.Random generate your key and replace it on the script
+`openssl rand -hex 16` or `python3 -c "import secrets; print(secrets.token_hex(16))"`
+2. Compile it.
 `gcc -o sneakysnicker sneakysnicker.c -lssl -lcrypto`
 2. Run it
 `./sneakysnicker`
