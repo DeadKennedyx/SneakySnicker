@@ -28,7 +28,7 @@ X: `*88888%`     !   8888  888R    888E  9888        888E~8888   8888.+"      48
      ^"****""`                      ""      "P'       ""    ""      "YP'
 ```
 
-C Script to encrypt and decrypt binary files
+C Script to encrypt and decrypt binary files using AES-128
 
 #### Usage
 File should be where the script is running.
