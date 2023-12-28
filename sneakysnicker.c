@@ -91,7 +91,7 @@ void decryptFile(const char *inputFileName, const char *outputFileName, const un
 int main() {
     char inputFileName[256];
     char outputFileName[256];
-    unsigned char key[AES_BLOCK_SIZE] = "0123456789abcdef";  // 128-bit key
+    unsigned char key[AES_BLOCK_SIZE] = "YOUR 128 bit key";  // 128-bit key
     char choice;
 
     printf("Enter 'e' for encryption or 'd' for decryption: ");
