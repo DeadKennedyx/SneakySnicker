@@ -19,6 +19,7 @@ void encryptFile(const char *inputFileName, const char *outputFileName, const un
         exit(EXIT_FAILURE);
     }
 
+    // this just to get the file length and rewind is for putting the file read to the beggining again
     fseek(inputFile, 0, SEEK_END);
     size_t fileLen = ftell(inputFile);
     rewind(inputFile);
@@ -36,6 +37,7 @@ void encryptFile(const char *inputFileName, const char *outputFileName, const un
         bytesRead += toRead;
 
         if (toRead < BLOCK_SIZE) {
+            // since AES blocks are 16 bytes if the last to read block is less than 16 bytes then we would fill it with zeroes
             memset(inData + toRead, 0, BLOCK_SIZE - toRead);    
         }
 
@@ -74,7 +76,6 @@ void decryptFile(const char *inputFileName, const char *outputFileName, const un
 
         AES_decrypt(inData, outData, &aesKey);
 
-        // If it's the last block, remove padding
         if (bytesRead == fileLen) {
             size_t padding = outData[BLOCK_SIZE - 1];
             fwrite(outData, 1, BLOCK_SIZE - padding, outputFile);
@@ -110,6 +111,7 @@ int main() {
         scanf("%255s", inputFileName);
 
         // Assume the output file will have the same name with "_decrypted" appended
+        // This part sucks because it appends to the encrypted name already so it looks messy but im too lazy to fix it
         snprintf(outputFileName, sizeof(outputFileName), "%s_decrypted", inputFileName);
 
         decryptFile(inputFileName, outputFileName, key);
