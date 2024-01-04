@@ -30,6 +30,9 @@ X: `*88888%`     !   8888  888R    888E  9888        888E~8888   8888.+"      48
 
 C Script to encrypt and decrypt binary files using AES-128
 
+#### Appreciation
+If you clone the repo don't forget to give a little star!
+
 #### Usage
 File should be where the script is running.
 
